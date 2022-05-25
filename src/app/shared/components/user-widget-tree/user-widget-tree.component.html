@@ -1,0 +1,29 @@
+
+<div class="user" [@childAnimation]="'open'" >
+  <h4 class="user-name" [@childAnimation]="'open'" >{{UserData?.name |uppercase}}</h4>
+  <h6 class="user-code">{{UserData?.code}}</h6>
+  <img alt="Default Image" [src]="imagePath" style="width: 100px; border-radius: 50%;">
+</div>
+
+
+  <!-- <div class="center">
+    <div class="card " >
+      <div class="card-header" style=" text-align:center">
+        <h4 class="card-title">{{UserData?.name}}</h4>
+        <h6 class="card-subtitle text-muted">{{UserData?.code}}</h6>
+      </div>
+      <div class="card-body ">
+         <img alt="Default Image" [src]="imagePath" style="width: 100px; height: 150;">
+      </div>
+
+    </div> -->
+
+
+<ul *ngIf="UserData?.children && UserData.children.length  > 0 " class=""  >
+
+  <li *ngFor="let user of UserData.children" class="" >
+
+    <user-widget-tree [UserData]="user" ></user-widget-tree>
+  </li>
+</ul>
+
